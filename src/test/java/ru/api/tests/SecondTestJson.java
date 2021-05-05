@@ -14,13 +14,9 @@ public class SecondTestJson {
         public void getAPI(){
 
             String json = RestAssured.get("https://status.encoding.com/status.php?format=json").asString();
-            System.out.println(json);
             JSONObject jsonResponse = new JSONObject(json);
-            System.out.println(jsonResponse.getString("status"));
             String status = jsonResponse.getString("status");
-            System.out.println(jsonResponse.getJSONObject("incident_count").getInt("lastYear"));
             int lastYear = jsonResponse.getJSONObject("incident_count").getInt("lastYear");
-            System.out.println(jsonResponse.getInt("uptime"));
             int upTime = jsonResponse.getInt("uptime");
 
 
